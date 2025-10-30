@@ -1,0 +1,19 @@
+/* - Подготовка к стилизации - */
+
+/* Сброс дефолтных стилей */
+@import url("./reset.css");
+
+/* Переменные */
+@import url("./variables.css");
+
+/* - Стилизация - */
+
+html {
+	font-size: 16px;
+}
+
+body {
+	background-color: var(--light-color);
+	color: var(--dark-color);
+	font-family: var(--roboto-font);
+}
