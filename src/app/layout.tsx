@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { Roboto, Roboto_Slab } from "next/font/google"
 
+import AppHeader from "@/components/layout/AppHeader"
+
 import "@/assets/css/globals.css"
 
 const robotoFont = Roboto({
@@ -32,7 +34,11 @@ export default function RootLayout({
 	return (
 		<html lang="ru">
 			<body className={`${robotoFont.variable} ${robotoSlabFont.variable}`}>
-				{children}
+				<AppHeader />
+
+				<main className="main">
+					<div className="wrapper">{children}</div>
+				</main>
 			</body>
 		</html>
 	)

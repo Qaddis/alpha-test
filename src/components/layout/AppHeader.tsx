@@ -16,7 +16,7 @@ export default function AppHeader() {
 
 				<nav className={styles.nav}>
 					<HeaderLink to="/">Главная</HeaderLink>
-					<HeaderLink to="/product">Продукты</HeaderLink>
+					<HeaderLink to="/products">Продукты</HeaderLink>
 				</nav>
 			</div>
 		</header>
