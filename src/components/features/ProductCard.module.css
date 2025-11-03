@@ -1,0 +1,106 @@
+.card {
+	flex-basis: 260px;
+	height: 480px;
+	border: 1px solid var(--dark-color);
+	border-radius: 5px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.img {
+	width: 260px;
+	height: 260px;
+	border-bottom: 1px solid var(--dark-color);
+	background: linear-gradient(45deg, var(--accent-color), var(--light-color));
+}
+
+.rating {
+	display: flex;
+	align-items: center;
+}
+
+.rating span {
+	margin-right: 1.5px;
+}
+
+.rating svg {
+	font-size: 1.2rem;
+}
+
+.info {
+	width: 100%;
+	padding: 5px;
+
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 5px;
+}
+
+.title {
+	width: 75%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	font-size: 1.2rem;
+	font-weight: 800;
+}
+
+.description {
+	display: -webkit-box;
+	-webkit-line-clamp: 5;
+	-webkit-box-orient: vertical;
+	line-clamp: 5;
+	overflow: hidden;
+}
+
+.price {
+	font-size: 1.15rem;
+	margin-top: auto;
+}
+
+.price span {
+	font-weight: bold;
+}
+
+.buttons {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	gap: 10px;
+	border-top: 1px dashed var(--dark-color);
+}
+
+.buttons button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	padding: 3.5px 0;
+
+	color: var(--accent-color);
+	border: 1px solid var(--accent-color);
+	border-radius: 5px;
+
+	transition-property: background-color, color, opacity, translate;
+	transition-duration: 0.15s, 0.15s, 0.25s, 0.2s;
+}
+
+.buttons button:hover {
+	background-color: var(--accent-color);
+	color: var(--light-color);
+}
+
+.buttons button:active {
+	opacity: 0.85;
+	translate: 0 2px;
+}
