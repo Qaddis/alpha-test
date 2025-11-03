@@ -6,4 +6,5 @@ export interface IProduct {
 	discount: number
 	rating: number
 	images: string[]
+	isFavorite: boolean
 }

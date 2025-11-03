@@ -14,6 +14,7 @@ export const getData = async (): Promise<IProduct[]> => {
 		description: item.description,
 		price: item.price,
 		rating: item.rating,
-		images: item.images
+		images: item.images,
+		isFavorite: false
 	}))
 }
