@@ -2,11 +2,12 @@
 
 import { useEffect } from "react"
 
+import ProductCard from "@/components/features/ProductCard"
+import ProductsContainer from "@/components/layout/ProductsContainer"
 import PageHeading from "@/components/ui/PageHeading"
 import useProducts from "@/stores/productStore"
 
-import ProductCard from "@/components/features/ProductCard"
-import styles from "./ProductsPage.module.css"
+import styles from "./ProductPage.module.css"
 
 export default function ProductsPage() {
 	const { products, init } = useProducts()
@@ -19,7 +20,7 @@ export default function ProductsPage() {
 		<section className={styles.page}>
 			<PageHeading>Продукты</PageHeading>
 
-			<div className={styles["cards-container"]}>
+			<ProductsContainer>
 				{products.length === 0 ? (
 					<span>Пусто ;(</span>
 				) : (
@@ -27,7 +28,7 @@ export default function ProductsPage() {
 						<ProductCard key={`product-${product.id}`} {...product} />
 					))
 				)}
-			</div>
+			</ProductsContainer>
 		</section>
 	)
 }
