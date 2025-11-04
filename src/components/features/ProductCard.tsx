@@ -1,13 +1,16 @@
 "use client"
 
-import { Delete, FavoriteBorder, Star } from "@mui/icons-material"
+import { Delete, Favorite, FavoriteBorder, Star } from "@mui/icons-material"
 import Image from "next/image"
 
+import useProducts from "@/stores/productStore"
 import type { IProduct } from "@/types/product.types"
 
 import styles from "./ProductCard.module.css"
 
 export default function ProductCard(props: IProduct) {
+	const { toggleFavorite, deleteProduct } = useProducts()
+
 	return (
 		<article className={styles.card}>
 			<Image
@@ -20,9 +23,9 @@ export default function ProductCard(props: IProduct) {
 
 			<div className={styles.info}>
 				<div className={styles.header}>
-					<h3 className={styles.title} title={props.title}>
+					<h5 className={styles.title} title={props.title}>
 						{props.title}
-					</h3>
+					</h5>
 
 					<div className={styles.rating}>
 						<span>{props.rating}</span> <Star />
@@ -37,10 +40,10 @@ export default function ProductCard(props: IProduct) {
 			</div>
 
 			<div className={styles.buttons}>
-				<button>
-					<FavoriteBorder />
+				<button onClick={() => toggleFavorite(props.id)}>
+					{props.isFavorite ? <Favorite /> : <FavoriteBorder />}
 				</button>
-				<button>
+				<button onClick={() => deleteProduct(props.id)}>
 					<Delete />
 				</button>
 			</div>
