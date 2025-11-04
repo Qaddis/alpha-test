@@ -2,6 +2,7 @@
 
 import { Delete, Favorite, FavoriteBorder, Star } from "@mui/icons-material"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 import useProducts from "@/stores/productStore"
 import type { IProduct } from "@/types/product.types"
@@ -11,8 +12,27 @@ import styles from "./ProductCard.module.css"
 export default function ProductCard(props: IProduct) {
 	const { toggleFavorite, deleteProduct } = useProducts()
 
+	const router = useRouter()
+
+	const handleFavorite = (
+		event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+	): void => {
+		event.stopPropagation()
+		toggleFavorite(props.id)
+	}
+
+	const handleDelete = (
+		event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+	): void => {
+		event.stopPropagation()
+		deleteProduct(props.id)
+	}
+
 	return (
-		<article className={styles.card}>
+		<article
+			className={styles.card}
+			onClick={() => router.push(`/products/${props.id}`)}
+		>
 			<Image
 				width={1000}
 				height={1000}
@@ -40,10 +60,10 @@ export default function ProductCard(props: IProduct) {
 			</div>
 
 			<div className={styles.buttons}>
-				<button onClick={() => toggleFavorite(props.id)}>
+				<button onClick={handleFavorite}>
 					{props.isFavorite ? <Favorite /> : <FavoriteBorder />}
 				</button>
-				<button onClick={() => deleteProduct(props.id)}>
+				<button onClick={handleDelete}>
 					<Delete />
 				</button>
 			</div>
