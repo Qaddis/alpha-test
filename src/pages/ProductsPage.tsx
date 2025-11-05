@@ -7,7 +7,7 @@ import ProductsContainer from "@/components/layout/ProductsContainer"
 import PageHeading from "@/components/ui/PageHeading"
 import useProducts from "@/stores/productStore"
 
-import styles from "./ProductPage.module.css"
+import styles from "./ProductsPage.module.css"
 
 export default function ProductsPage() {
 	const { products, init } = useProducts()

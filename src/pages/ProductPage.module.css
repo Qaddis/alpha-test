@@ -1,2 +1,48 @@
 .page {
+	display: flex;
+	gap: 0 35px;
+}
+
+.banner {
+	width: 100%;
+	background: linear-gradient(45deg, var(--accent-color), var(--light-color));
+	border: 1px solid var(--dark-color);
+	border-radius: 15px;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 15px 0;
+}
+
+.rating {
+	display: flex;
+	align-items: center;
+	gap: 2px;
+}
+
+.rating svg {
+	font-size: 1.2rem;
+}
+
+.price {
+	font-size: 1.25rem;
+}
+
+.price span {
+	font-weight: 800;
+}
+
+.buttons {
+	margin-top: auto;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 0 15px;
+}
+
+.buttons button {
+	flex-grow: 1;
 }
