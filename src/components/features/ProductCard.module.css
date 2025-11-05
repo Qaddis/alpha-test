@@ -82,26 +82,5 @@
 }
 
 .buttons button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	flex-grow: 1;
-	padding: 3.5px 0;
-
-	color: var(--accent-color);
-	border: 1px solid var(--accent-color);
-	border-radius: 5px;
-
-	transition-property: background-color, color, opacity, translate;
-	transition-duration: 0.15s, 0.15s, 0.25s, 0.2s;
-}
-
-.buttons button:hover {
-	background-color: var(--accent-color);
-	color: var(--light-color);
-}
-
-.buttons button:active {
-	opacity: 0.85;
-	translate: 0 2px;
 }

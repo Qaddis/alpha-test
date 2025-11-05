@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 
 import useProducts from "@/stores/productStore"
 import type { IProduct } from "@/types/product.types"
+import OutlineButton from "../ui/OutlineButton"
 
 import styles from "./ProductCard.module.css"
 
@@ -60,12 +61,12 @@ export default function ProductCard(props: IProduct) {
 			</div>
 
 			<div className={styles.buttons}>
-				<button onClick={handleFavorite}>
+				<OutlineButton onClick={handleFavorite}>
 					{props.isFavorite ? <Favorite /> : <FavoriteBorder />}
-				</button>
-				<button onClick={handleDelete}>
+				</OutlineButton>
+				<OutlineButton onClick={handleDelete}>
 					<Delete />
-				</button>
+				</OutlineButton>
 			</div>
 		</article>
 	)
