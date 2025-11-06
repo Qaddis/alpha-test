@@ -62,7 +62,7 @@ export default function ProductCard({ productId }: IProps) {
 					<p className={styles.description}>{product.description}</p>
 
 					<p className={styles.price}>
-						<span>Price:</span> {product.price}$
+						<span>Цена:</span> {product.price}$
 					</p>
 				</div>
 

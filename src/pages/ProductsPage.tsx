@@ -1,5 +1,7 @@
 "use client"
 
+import AddIcon from "@mui/icons-material/Add"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 
 import ProductCard from "@/components/features/ProductCard"
@@ -12,6 +14,8 @@ import styles from "./ProductsPage.module.css"
 
 export default function ProductsPage() {
 	const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([])
+
+	const router = useRouter()
 
 	return (
 		<section className={styles.page}>
@@ -28,6 +32,14 @@ export default function ProductsPage() {
 					))
 				)}
 			</ProductsContainer>
+
+			<button
+				onClick={() => router.push("/create-product")}
+				className={styles["add-btn"]}
+				title="Добавить новый продукт"
+			>
+				<AddIcon />
+			</button>
 		</section>
 	)
 }
