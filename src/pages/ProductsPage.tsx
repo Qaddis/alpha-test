@@ -1,30 +1,29 @@
 "use client"
 
-import { useEffect } from "react"
+import { useState } from "react"
 
 import ProductCard from "@/components/features/ProductCard"
+import SearchWithFilters from "@/components/features/SearchWithFilters"
 import ProductsContainer from "@/components/layout/ProductsContainer"
 import PageHeading from "@/components/ui/PageHeading"
-import useProducts from "@/stores/productStore"
+import type { IProduct } from "@/types/product.types"
 
 import styles from "./ProductsPage.module.css"
 
 export default function ProductsPage() {
-	const { products, init } = useProducts()
-
-	useEffect(() => {
-		if (products.length === 0) init()
-	}, [products, init])
+	const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([])
 
 	return (
 		<section className={styles.page}>
 			<PageHeading>Продукты</PageHeading>
 
+			<SearchWithFilters setProducts={setFilteredProducts} />
+
 			<ProductsContainer>
-				{products.length === 0 ? (
+				{filteredProducts.length === 0 ? (
 					<span>Пусто ;(</span>
 				) : (
-					products.map(product => (
+					filteredProducts.map(product => (
 						<ProductCard key={`product-${product.id}`} {...product} />
 					))
 				)}

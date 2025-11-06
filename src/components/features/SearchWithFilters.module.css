@@ -1,0 +1,27 @@
+.search-block {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0 10px;
+	border: 2px dashed var(--dark-color);
+	border-radius: 10px;
+	margin-bottom: 15px;
+	padding: 10px;
+}
+
+.search {
+	flex-grow: 1;
+}
+
+.search__input {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid var(--dark-color);
+	border-radius: 5px;
+}
+
+.cb-with-label {
+	display: flex;
+	align-items: center;
+	gap: 0 5px;
+}

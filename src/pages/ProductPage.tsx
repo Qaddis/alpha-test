@@ -37,7 +37,7 @@ export default function ProductPage({ productId }: IProps) {
 
 	useEffect(() => {
 		if (products.length === 0) init()
-	}, [products, init])
+	}, []) // Зависимости оставлены пустыми специально
 
 	return product ? (
 		<section>
