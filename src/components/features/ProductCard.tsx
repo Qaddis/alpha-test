@@ -1,7 +1,6 @@
 "use client"
 
 import { Delete, Favorite, FavoriteBorder, Star } from "@mui/icons-material"
-import Image from "next/image"
 import { useRouter } from "next/navigation"
 
 import useProducts from "@/stores/productStore"
@@ -40,9 +39,7 @@ export default function ProductCard({ productId }: IProps) {
 				className={styles.card}
 				onClick={() => router.push(`/products/${productId}`)}
 			>
-				<Image
-					width={1000}
-					height={1000}
+				<img
 					src={product.images[0]}
 					alt={`${product.title} Product Card Banner`}
 					className={styles.img}

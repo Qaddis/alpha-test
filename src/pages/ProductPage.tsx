@@ -7,7 +7,6 @@ import {
 	FavoriteBorder,
 	Star
 } from "@mui/icons-material"
-import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 
@@ -50,9 +49,7 @@ export default function ProductPage({ productId }: IProps) {
 
 			<div className={styles.content}>
 				<div className={styles.banner}>
-					<Image
-						width={1000}
-						height={1000}
+					<img
 						src={product.images[0]}
 						alt={`${product.title} Product Banner`}
 					/>

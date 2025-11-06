@@ -1,0 +1,44 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 100%;
+}
+
+.form label {
+	margin-top: 10px;
+}
+
+.form label:first-child {
+	margin-top: 0;
+}
+
+.form input,
+.form textarea {
+	width: 75%;
+	max-width: 550px;
+	padding: 3.5px;
+	border: 1px solid var(--dark-color);
+	border-radius: 5px;
+}
+
+.form textarea {
+	min-width: 40%;
+	min-height: 2rem;
+	max-height: 20vh;
+}
+
+.submit-btn {
+	font-size: 1.2rem;
+	color: var(--light-color);
+	background-color: var(--accent-color);
+	border-radius: 5px;
+	padding: 7.5px 15px;
+	margin-top: 20px;
+}
+
+.error {
+	color: salmon;
+	margin-top: 1.5px;
+}
