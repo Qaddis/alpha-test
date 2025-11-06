@@ -5,69 +5,76 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 
 import useProducts from "@/stores/productStore"
-import type { IProduct } from "@/types/product.types"
 import OutlineButton from "../ui/OutlineButton"
 
 import styles from "./ProductCard.module.css"
 
-export default function ProductCard(props: IProduct) {
-	const { toggleFavorite, deleteProduct } = useProducts()
+interface IProps {
+	productId: number
+}
+
+export default function ProductCard({ productId }: IProps) {
+	const { getProduct, toggleFavorite, deleteProduct } = useProducts()
 
 	const router = useRouter()
+
+	const product = getProduct(productId)
 
 	const handleFavorite = (
 		event: React.MouseEvent<HTMLButtonElement, MouseEvent>
 	): void => {
 		event.stopPropagation()
-		toggleFavorite(props.id)
+		toggleFavorite(productId)
 	}
 
 	const handleDelete = (
 		event: React.MouseEvent<HTMLButtonElement, MouseEvent>
 	): void => {
 		event.stopPropagation()
-		deleteProduct(props.id)
+		deleteProduct(productId)
 	}
 
 	return (
-		<article
-			className={styles.card}
-			onClick={() => router.push(`/products/${props.id}`)}
-		>
-			<Image
-				width={1000}
-				height={1000}
-				src={props.images[0]}
-				alt={`${props.title} Product Card Banner`}
-				className={styles.img}
-			/>
+		product && (
+			<article
+				className={styles.card}
+				onClick={() => router.push(`/products/${productId}`)}
+			>
+				<Image
+					width={1000}
+					height={1000}
+					src={product.images[0]}
+					alt={`${product.title} Product Card Banner`}
+					className={styles.img}
+				/>
 
-			<div className={styles.info}>
-				<div className={styles.header}>
-					<h5 className={styles.title} title={props.title}>
-						{props.title}
-					</h5>
+				<div className={styles.info}>
+					<div className={styles.header}>
+						<h5 className={styles.title} title={product.title}>
+							{product.title}
+						</h5>
 
-					<div className={styles.rating}>
-						<span>{props.rating}</span> <Star />
+						<div className={styles.rating}>
+							<span>{product.rating}</span> <Star />
+						</div>
 					</div>
+
+					<p className={styles.description}>{product.description}</p>
+
+					<p className={styles.price}>
+						<span>Price:</span> {product.price}$
+					</p>
 				</div>
 
-				<p className={styles.description}>{props.description}</p>
-
-				<p className={styles.price}>
-					<span>Price:</span> {props.price}$
-				</p>
-			</div>
-
-			<div className={styles.buttons}>
-				<OutlineButton onClick={handleFavorite}>
-					{props.isFavorite ? <Favorite /> : <FavoriteBorder />}
-				</OutlineButton>
-				<OutlineButton onClick={handleDelete}>
-					<Delete />
-				</OutlineButton>
-			</div>
-		</article>
+				<div className={styles.buttons}>
+					<OutlineButton onClick={handleFavorite}>
+						{product.isFavorite ? <Favorite /> : <FavoriteBorder />}
+					</OutlineButton>
+					<OutlineButton onClick={handleDelete}>
+						<Delete />
+					</OutlineButton>
+				</div>
+			</article>
+		)
 	)
 }

@@ -24,7 +24,7 @@ export default function ProductsPage() {
 					<span>Пусто ;(</span>
 				) : (
 					filteredProducts.map(product => (
-						<ProductCard key={`product-${product.id}`} {...product} />
+						<ProductCard key={`product-${product.id}`} productId={product.id} />
 					))
 				)}
 			</ProductsContainer>

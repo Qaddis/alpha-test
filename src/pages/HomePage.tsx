@@ -30,7 +30,10 @@ export default function HomePage() {
 				) : (
 					<ProductsContainer>
 						{favoriteProducts.map(product => (
-							<ProductCard key={`product-${product.id}`} {...product} />
+							<ProductCard
+								key={`product-${product.id}`}
+								productId={product.id}
+							/>
 						))}
 					</ProductsContainer>
 				)}
