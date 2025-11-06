@@ -5,6 +5,7 @@
 
 .banner {
 	width: 100%;
+	max-width: calc(0.5 * 80vw);
 	background: linear-gradient(45deg, var(--accent-color), var(--light-color));
 	border: 1px solid var(--dark-color);
 	border-radius: 15px;

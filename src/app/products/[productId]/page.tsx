@@ -1,5 +1,6 @@
+import type { Metadata } from "next"
+
 import ProductPage from "@/pages/ProductPage"
-import { Metadata } from "next"
 
 export const metadata: Metadata = {
 	title: "Страница продукта"
