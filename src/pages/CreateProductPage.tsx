@@ -82,7 +82,7 @@ export default function CreateProductPage() {
 							message: requiredErrorMessage
 						},
 						validate: value => {
-							const num = parseFloat(value)
+							const num = parseFloat(value as string)
 							return (!isNaN(num) && num >= 0) || "Введите корректное число"
 						}
 					})}
