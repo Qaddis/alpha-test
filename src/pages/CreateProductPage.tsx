@@ -81,10 +81,9 @@ export default function CreateProductPage() {
 							value: true,
 							message: requiredErrorMessage
 						},
-						validate: value => {
-							const num = parseFloat(value as string)
-							return (!isNaN(num) && num >= 0) || "Введите корректное число"
-						}
+						valueAsNumber: true,
+						validate: value =>
+							(!isNaN(value) && value >= 0) || "Введите корректное число"
 					})}
 					type="text"
 					id="price-inp"
