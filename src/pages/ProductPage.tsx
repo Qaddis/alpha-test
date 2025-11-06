@@ -1,6 +1,12 @@
 "use client"
 
-import { Delete, Favorite, FavoriteBorder, Star } from "@mui/icons-material"
+import {
+	ArrowBack,
+	Delete,
+	Favorite,
+	FavoriteBorder,
+	Star
+} from "@mui/icons-material"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
@@ -34,36 +40,45 @@ export default function ProductPage({ productId }: IProps) {
 	}, [products, init])
 
 	return product ? (
-		<section className={styles.page}>
-			<div className={styles.banner}>
-				<Image
-					width={1000}
-					height={1000}
-					src={product.images[0]}
-					alt={`${product.title} Product Banner`}
-				/>
-			</div>
+		<section>
+			<OutlineButton
+				onClick={() => router.push("/products")}
+				className={styles["back-btn"]}
+			>
+				<ArrowBack /> <span>Назад</span>
+			</OutlineButton>
 
-			<div className={styles.info}>
-				<PageHeading>{product.title}</PageHeading>
+			<div className={styles.content}>
+				<div className={styles.banner}>
+					<Image
+						width={1000}
+						height={1000}
+						src={product.images[0]}
+						alt={`${product.title} Product Banner`}
+					/>
+				</div>
 
-				<p className={styles.rating}>
-					Рейтинг: <span>{product.rating}</span> <Star />
-				</p>
+				<div className={styles.info}>
+					<PageHeading>{product.title}</PageHeading>
 
-				<p className={styles.description}>{product.description}</p>
+					<p className={styles.rating}>
+						Рейтинг: <span>{product.rating}</span> <Star />
+					</p>
 
-				<h4 className={styles.price}>
-					<span>Цена:</span> {product.price}$
-				</h4>
+					<p className={styles.description}>{product.description}</p>
 
-				<div className={styles.buttons}>
-					<OutlineButton onClick={() => toggleFavorite(product.id)}>
-						{product.isFavorite ? <Favorite /> : <FavoriteBorder />}
-					</OutlineButton>
-					<OutlineButton onClick={handleDelete}>
-						<Delete />
-					</OutlineButton>
+					<h4 className={styles.price}>
+						<span>Цена:</span> {product.price}$
+					</h4>
+
+					<div className={styles.buttons}>
+						<OutlineButton onClick={() => toggleFavorite(product.id)}>
+							{product.isFavorite ? <Favorite /> : <FavoriteBorder />}
+						</OutlineButton>
+						<OutlineButton onClick={handleDelete}>
+							<Delete />
+						</OutlineButton>
+					</div>
 				</div>
 			</div>
 		</section>

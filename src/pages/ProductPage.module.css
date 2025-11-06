@@ -1,6 +1,15 @@
-.page {
+.content {
 	display: flex;
 	gap: 0 35px;
+}
+
+.back-btn {
+	margin-bottom: 10px;
+	padding: 5px 10px;
+}
+
+.back-btn span {
+	font-weight: 800;
 }
 
 .banner {
